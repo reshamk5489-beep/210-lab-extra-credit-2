@@ -15,7 +15,7 @@ int main()
 
     while (file >> title >> rating) 
     {
-        movies.insert({title, vector<int>()});
+        movies[title].push_back(rating);
     }
 
     file.close();
