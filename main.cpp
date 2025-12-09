@@ -31,12 +31,13 @@ int main()
             averageRating += r;
         }
         cout << endl;
-        cout << averageRating << endl;
         cout << "\tAverage Rating: " << averageRating / p.second.size() << endl;
     }
 
     cout << endl;
     cout << "Total movies: " << movies.size() << endl;
-
+    
     return 0;
 }
+
+// Extra Milestone 2
