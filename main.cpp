@@ -10,7 +10,6 @@ int main()
     ifstream file("210-xc2-FA25.txt");
     string title;
     int rating;
-    double averageRating = 0.0;
 
     map<string, vector<int>> movies;
 
@@ -23,6 +22,7 @@ int main()
     
     for (auto &p : movies) 
     {
+        double averageRating = 0.0;
         cout << p.first <<  endl;
         cout << "\tRatings: ";
         for (int r : p.second) 
@@ -31,8 +31,12 @@ int main()
             averageRating += r;
         }
         cout << endl;
+        cout << averageRating << endl;
         cout << "\tAverage Rating: " << averageRating / p.second.size() << endl;
     }
+
+    cout << endl;
+    cout << "Total movies: " << movies.size() << endl;
 
     return 0;
 }
