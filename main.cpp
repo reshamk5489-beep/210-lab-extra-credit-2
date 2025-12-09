@@ -10,12 +10,26 @@ int main()
     ifstream file("210-xc2-FA25.txt");
     string title;
     int rating;
+    double maxAverageRating;
 
     map<string, vector<int>> movies;
 
     while (file >> title >> rating) 
     {
-        movies[title].push_back(rating);
+        double averageRating = 0.0;
+
+        auto &ratings = movies[title];
+        ratings.push_back(rating);
+        
+        for (int r : ratings) 
+        {
+            averageRating += r;
+        }
+
+        if (averageRating / ratings.size() > maxAverageRating) 
+        {
+            maxAverageRating = averageRating / ratings.size();
+        }
     }
 
     file.close();
@@ -36,8 +50,8 @@ int main()
 
     cout << endl;
     cout << "Total movies: " << movies.size() << endl;
+
+    cout << "Highest Average Rating: " << maxAverageRating << endl;
     
     return 0;
 }
-
-// Extra Milestone 2
